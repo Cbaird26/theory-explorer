@@ -81,4 +81,65 @@ if page == "Particle Physics":
 
 # Educational Modules
 if page == "Educational Modules":
-    st.header("Ed
+    st.header("Educational Modules")
+    st.write("Learn about the Theory of Everything.")
+
+    modules = {
+        "General Relativity": "General Relativity describes the gravitational force as the curvature of spacetime caused by mass and energy.",
+        "Quantum Mechanics": "Quantum Mechanics deals with the behavior of particles at atomic and subatomic scales.",
+        "String Theory": "String Theory posits that particles are one-dimensional strings vibrating at different frequencies.",
+        "Loop Quantum Gravity": "Loop Quantum Gravity attempts to describe the quantum properties of the universe and gravity."
+    }
+
+    module = st.selectbox("Select a Module", list(modules.keys()))
+    st.write(modules[module])
+
+# Build Your Own Universe
+if page == "Build Your Own Universe":
+    st.header("Build Your Own Universe")
+    st.write("Manipulate initial conditions and see how the universe evolves.")
+
+    initial_density = st.sidebar.slider("Initial Density", 0.1, 10.0, 1.0)
+    initial_temperature = st.sidebar.slider("Initial Temperature (K)", 1, 10000, 3000)
+
+    st.write(f"Simulating universe with initial density {initial_density} and temperature {initial_temperature} K.")
+
+    # Simple universe evolution simulation
+    def universe_evolution(density, temperature, t):
+        # Simplified model for demonstration
+        size = density * np.exp(-0.1 * t) + temperature * np.exp(0.1 * t)
+        return size
+
+    time_points = np.linspace(0, 100, 200)
+    universe_size = universe_evolution(initial_density, initial_temperature, time_points)
+
+    fig, ax = plt.subplots()
+    ax.plot(time_points, universe_size)
+    ax.set_xlabel("Time")
+    ax.set_ylabel("Universe Size")
+    st.pyplot(fig)
+
+# Particle Collider
+if page == "Particle Collider":
+    st.header("Particle Collider")
+    st.write("Run virtual particle collisions and observe the outcomes.")
+
+    collision_energy = st.sidebar.slider("Collision Energy (TeV)", 1, 100, 13)
+    particles = ["Electron", "Proton", "Neutron", "Higgs Boson"]
+    particle = st.sidebar.selectbox("Select a Particle", particles)
+
+    st.write(f"Running collisions at {collision_energy} TeV involving {particle}.")
+
+    # Placeholder for detailed particle collision outcomes
+    st.write("Collision outcomes will be displayed here.")
+
+    # Example of a simple collision result display
+    st.write(f"Simulated collision of {particle} at {collision_energy} TeV results in:")
+    if particle == "Electron":
+        st.write("Result: High energy electrons and photons.")
+    elif particle == "Proton":
+        st.write("Result: Quarks and gluons, forming jets.")
+    elif particle == "Neutron":
+        st.write("Result: Quarks and gluons, forming hadronic showers.")
+    elif particle == "Higgs Boson":
+        st.write("Result: Decays into various particles, including bottom quarks, W bosons, and photons.")
