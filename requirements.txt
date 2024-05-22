@@ -7,3 +7,8 @@ pandas
 scipy
 numpy
 plotly
+streamlit
+numpy
+scipy
+matplotlib
+plotly
