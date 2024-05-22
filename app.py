@@ -65,44 +65,20 @@ if page == "Particle Physics":
 
     st.write(f"Simulating collisions at {collision_energy} TeV involving {particle}.")
 
-    # Placeholder for simulation
-    st.write("Collision results will be displayed here.")
+    # Placeholder for particle collision simulation
+    def simulate_particle_collision(energy, particle):
+        # Simulate some basic results
+        result = {
+            "Electron": {"mass": 0.511, "charge": -1},
+            "Proton": {"mass": 938.3, "charge": +1},
+            "Neutron": {"mass": 939.6, "charge": 0},
+            "Higgs Boson": {"mass": 125100, "charge": 0}
+        }
+        return result.get(particle, {})
+
+    collision_result = simulate_particle_collision(collision_energy, particle)
+    st.write(f"Collision result: {collision_result}")
 
 # Educational Modules
 if page == "Educational Modules":
-    st.header("Educational Modules")
-    st.write("Learn about the Theory of Everything.")
-
-    modules = {
-        "General Relativity": "Description of General Relativity.",
-        "Quantum Mechanics": "Description of Quantum Mechanics.",
-        "String Theory": "Description of String Theory.",
-        "Loop Quantum Gravity": "Description of Loop Quantum Gravity."
-    }
-
-    module = st.selectbox("Select a Module", list(modules.keys()))
-    st.write(modules[module])
-
-# Build Your Own Universe
-if page == "Build Your Own Universe":
-    st.header("Build Your Own Universe")
-    st.write("Manipulate initial conditions and see how the universe evolves.")
-
-    initial_density = st.sidebar.slider("Initial Density", 0.1, 10.0, 1.0)
-    initial_temperature = st.sidebar.slider("Initial Temperature (K)", 1, 10000, 3000)
-
-    st.write(f"Simulating universe with initial density {initial_density} and temperature {initial_temperature} K.")
-
-    # Placeholder for simulation
-    st.write("Universe evolution results will be displayed here.")
-
-# Particle Collider
-if page == "Particle Collider":
-    st.header("Particle Collider")
-    st.write("Run virtual particle collisions and observe the outcomes.")
-
-    collision_energy = st.sidebar.slider("Collision Energy (TeV)", 1, 100, 13)
-    st.write(f"Running collisions at {collision_energy} TeV.")
-
-    # Placeholder for simulation
-    st.write("Collision outcomes will be displayed here.")
+    st.header("Ed
