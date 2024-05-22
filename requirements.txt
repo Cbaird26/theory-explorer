@@ -6,3 +6,4 @@ PyWavelets
 pandas
 scipy
 numpy
+plotly
